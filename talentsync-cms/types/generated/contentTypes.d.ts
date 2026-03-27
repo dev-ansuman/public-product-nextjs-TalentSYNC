@@ -22,38 +22,38 @@ export interface AdminApiToken extends Struct.CollectionTypeSchema {
   };
   attributes: {
     accessKey: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     description: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }> &
-      Schema.Attribute.DefaultTo<''>;
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }> &
+    Schema.Attribute.DefaultTo<''>;
     encryptedKey: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::api-token'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.Unique &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     permissions: Schema.Attribute.Relation<'oneToMany', 'admin::api-token-permission'>;
     publishedAt: Schema.Attribute.DateTime;
     type: Schema.Attribute.Enumeration<['read-only', 'full-access', 'custom']> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'read-only'>;
+    Schema.Attribute.Required &
+    Schema.Attribute.DefaultTo<'read-only'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
   };
@@ -81,15 +81,15 @@ export interface AdminApiTokenPermission extends Struct.CollectionTypeSchema {
   };
   attributes: {
     action: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::api-token-permission'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     token: Schema.Attribute.Relation<'manyToOne', 'admin::api-token'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -123,7 +123,7 @@ export interface AdminAuditLog extends Struct.CollectionTypeSchema {
     date: Schema.Attribute.DateTime & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::audit-log'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     payload: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -154,10 +154,10 @@ export interface AdminPermission extends Struct.CollectionTypeSchema {
   };
   attributes: {
     action: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     /* eslint-disable @typescript-eslint/no-empty-object-type */
     actionParameters: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<{}>;
     conditions: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<[]>;
@@ -165,15 +165,15 @@ export interface AdminPermission extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::permission'> &
-      /* eslint-disable @typescript-eslint/no-empty-object-type */
-      Schema.Attribute.Private;
+    /* eslint-disable @typescript-eslint/no-empty-object-type */
+    Schema.Attribute.Private;
     properties: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<{}>;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.Relation<'manyToOne', 'admin::role'>;
     subject: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
   };
@@ -201,22 +201,22 @@ export interface AdminRole extends Struct.CollectionTypeSchema {
   };
   attributes: {
     code: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.Unique &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     description: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::role'> & Schema.Attribute.Private;
     name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.Unique &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     permissions: Schema.Attribute.Relation<'oneToMany', 'admin::permission'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -257,13 +257,13 @@ export interface AdminSession extends Struct.CollectionTypeSchema {
     expiresAt: Schema.Attribute.DateTime & Schema.Attribute.Required & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::session'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     origin: Schema.Attribute.String & Schema.Attribute.Required & Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     sessionId: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Private &
-      Schema.Attribute.Unique;
+    Schema.Attribute.Required &
+    Schema.Attribute.Private &
+    Schema.Attribute.Unique;
     status: Schema.Attribute.String & Schema.Attribute.Private;
     type: Schema.Attribute.String & Schema.Attribute.Private;
     updatedAt: Schema.Attribute.DateTime;
@@ -294,29 +294,29 @@ export interface AdminTransferToken extends Struct.CollectionTypeSchema {
   };
   attributes: {
     accessKey: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     description: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }> &
-      Schema.Attribute.DefaultTo<''>;
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }> &
+    Schema.Attribute.DefaultTo<''>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::transfer-token'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.Unique &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     permissions: Schema.Attribute.Relation<'oneToMany', 'admin::transfer-token-permission'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -346,15 +346,15 @@ export interface AdminTransferTokenPermission extends Struct.CollectionTypeSchem
   };
   attributes: {
     action: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::transfer-token-permission'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     token: Schema.Attribute.Relation<'manyToOne', 'admin::transfer-token'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -384,35 +384,35 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
   attributes: {
     blocked: Schema.Attribute.Boolean &
-      Schema.Attribute.Private &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.Private &
+    Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     email: Schema.Attribute.Email &
-      Schema.Attribute.Required &
-      Schema.Attribute.Private &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.Private &
+    Schema.Attribute.Unique &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 6;
+    }>;
     firstname: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     isActive: Schema.Attribute.Boolean &
-      Schema.Attribute.Private &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.Private &
+    Schema.Attribute.DefaultTo<false>;
     lastname: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'admin::user'> & Schema.Attribute.Private;
     password: Schema.Attribute.Password &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
+    Schema.Attribute.Private &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 6;
+    }>;
     preferedLanguage: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     registrationToken: Schema.Attribute.String & Schema.Attribute.Private;
@@ -442,7 +442,7 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog-post.blog-post'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     published_date: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
@@ -469,7 +469,7 @@ export interface ApiFeatureFeature extends Struct.CollectionTypeSchema {
     icon: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::feature.feature'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -496,7 +496,7 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
     hero_title: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::landing-page.landing-page'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
@@ -522,7 +522,7 @@ export interface ApiPricingPlanPricingPlan extends Struct.CollectionTypeSchema {
     is_popular: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::pricing-plan.pricing-plan'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String;
     price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
@@ -547,7 +547,7 @@ export interface ApiSubscriberSubscriber extends Struct.CollectionTypeSchema {
     email: Schema.Attribute.Email;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::subscriber.subscriber'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     subscribed_at: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -573,7 +573,7 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::testimonial.testimonial'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.String;
@@ -606,13 +606,13 @@ export interface PluginContentReleasesRelease extends Struct.CollectionTypeSchem
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'plugin::content-releases.release'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     releasedAt: Schema.Attribute.DateTime;
     scheduledAt: Schema.Attribute.DateTime;
     status: Schema.Attribute.Enumeration<['ready', 'blocked', 'failed', 'done', 'empty']> &
-      Schema.Attribute.Required;
+    Schema.Attribute.Required;
     timezone: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
@@ -648,7 +648,7 @@ export interface PluginContentReleasesReleaseAction extends Struct.CollectionTyp
       'oneToMany',
       'plugin::content-releases.release-action'
     > &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     release: Schema.Attribute.Relation<'manyToOne', 'plugin::content-releases.release'>;
     type: Schema.Attribute.Enumeration<['publish', 'unpublish']> & Schema.Attribute.Required;
@@ -683,15 +683,15 @@ export interface PluginI18NLocale extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'plugin::i18n.locale'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 50;
-          min: 1;
-        },
-        number
-      >;
+    Schema.Attribute.SetMinMax<
+      {
+        max: 50;
+        min: 1;
+      },
+      number
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
@@ -720,13 +720,13 @@ export interface PluginReviewWorkflowsWorkflow extends Struct.CollectionTypeSche
   };
   attributes: {
     contentTypes: Schema.Attribute.JSON &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'[]'>;
+    Schema.Attribute.Required &
+    Schema.Attribute.DefaultTo<'[]'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'plugin::review-workflows.workflow'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required & Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     stageRequiredToPublish: Schema.Attribute.Relation<
@@ -769,7 +769,7 @@ export interface PluginReviewWorkflowsWorkflowStage extends Struct.CollectionTyp
       'oneToMany',
       'plugin::review-workflows.workflow-stage'
     > &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String;
     permissions: Schema.Attribute.Relation<'manyToMany', 'admin::permission'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -806,19 +806,19 @@ export interface PluginUploadFile extends Struct.CollectionTypeSchema {
     ext: Schema.Attribute.String;
     focalPoint: Schema.Attribute.JSON;
     folder: Schema.Attribute.Relation<'manyToOne', 'plugin::upload.folder'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     folderPath: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.Private &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     formats: Schema.Attribute.JSON;
     hash: Schema.Attribute.String & Schema.Attribute.Required;
     height: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'plugin::upload.file'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     mime: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     previewUrl: Schema.Attribute.Text;
@@ -859,18 +859,18 @@ export interface PluginUploadFolder extends Struct.CollectionTypeSchema {
     files: Schema.Attribute.Relation<'oneToMany', 'plugin::upload.file'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'plugin::upload.folder'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     parent: Schema.Attribute.Relation<'manyToOne', 'plugin::upload.folder'>;
     path: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 1;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 1;
+    }>;
     pathId: Schema.Attribute.Integer & Schema.Attribute.Required & Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -904,7 +904,7 @@ export interface PluginUsersPermissionsPermission extends Struct.CollectionTypeS
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'plugin::users-permissions.permission'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.Relation<'manyToOne', 'plugin::users-permissions.role'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -938,12 +938,12 @@ export interface PluginUsersPermissionsRole extends Struct.CollectionTypeSchema 
     description: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'plugin::users-permissions.role'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 3;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 3;
+    }>;
     permissions: Schema.Attribute.Relation<'oneToMany', 'plugin::users-permissions.permission'>;
     publishedAt: Schema.Attribute.DateTime;
     type: Schema.Attribute.String & Schema.Attribute.Unique;
@@ -973,18 +973,18 @@ export interface PluginUsersPermissionsUser extends Struct.CollectionTypeSchema 
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     email: Schema.Attribute.Email &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 6;
+    }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'plugin::users-permissions.user'> &
-      Schema.Attribute.Private;
+    Schema.Attribute.Private;
     password: Schema.Attribute.Password &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
+    Schema.Attribute.Private &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 6;
+    }>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
@@ -992,16 +992,16 @@ export interface PluginUsersPermissionsUser extends Struct.CollectionTypeSchema 
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     username: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        minLength: 3;
-      }>;
+    Schema.Attribute.Required &
+    Schema.Attribute.Unique &
+    Schema.Attribute.SetMinMaxLength<{
+      minLength: 3;
+    }>;
   };
 }
 
 declare module '@strapi/strapi' {
-  export namespace Public {
+  export module Public {
     export interface ContentTypeSchemas {
       'admin::api-token': AdminApiToken;
       'admin::api-token-permission': AdminApiTokenPermission;
