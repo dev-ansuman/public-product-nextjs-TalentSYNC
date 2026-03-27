@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "landing-page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_title": {
+      "type": "string"
+    },
+    "hero_subtitle": {
+      "type": "text"
+    },
+    "hero_cta_text": {
+      "type": "string"
+    },
+    "hero_cta_link": {
+      "type": "string"
+    }
+  }
+}
