@@ -13,12 +13,6 @@ export default async function FeaturesPage() {
     <main className="pt-14">
       <section className="border-b border-black">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          {/* <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-black" />
-            <span className="text-xs font-bold uppercase tracking-widest text-neutral-400">
-              Features
-            </span>
-          </div> */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-none">
               Built for Modern Teams
@@ -38,7 +32,7 @@ export default async function FeaturesPage() {
             Ready to Transform your Hiring?
           </h2>
           <Link href="/pricing">
-            <Button size="lg" className="bg-black text-white rounded-none font-bold uppercase tracking-wider hover:bg-neutral-800 px-8 group">
+            <Button size="lg" className="bg-black text-white font-bold uppercase tracking-wider hover:bg-neutral-800 px-8 group">
               View Pricing
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
