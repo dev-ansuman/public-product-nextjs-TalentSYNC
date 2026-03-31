@@ -8,7 +8,7 @@
 **/*.tsbuildinfo
 
 .env
-**/.env
+**/*.env
 
 **/coverage
 
